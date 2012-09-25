@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+         <!-- Tom A Morse
+         Introduction to Programming
+         Project 2 - My First game -->
+	 <head>
+		 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		 <meta name="author"             content="Tom A Morse" />
+		 <title>Computer Science Project 2</title>
+		 <style>
+		 body {
+			 background-color: orange;
+			 color: black;
+		 }
+		 </style>
+		 <script type="text/JavaScript">
+			 var score = 0;
+			 var north = false;
+			 var south = false;
+			 var west = false;
+			 var east = false;
+			 function btn_ns_click(btnNum) {
+				 //if thing1 was pressed...
+				 //else if thing2 pressed...
+				 //alert(btnNum);
+				 if(btnNum === 1) {
+				     //alert("button 1")
+					 var msg = "You are heading North";
+					 updateText(msg);
+						 if (north === false) {
+							 score = score + 5
+						 }
+					 north = true;
+				 } else {
+					 if(btnNum === 2) {
+						 //alert("button 2");
+						 var msg = "You are heading South";
+						 updateText(msg);
+							 if (south === false) {
+							 score = score + 5
+							 }
+						 south = true;
+					 } else {
+						 alert("Something went wrong.");
+						 }
+				 }
+			 }
+			 function updateText(msg) {
+				 var ta = document.getElementById("taGame");
+				 //alert(ta.value);
+				 ta.value = msg + "\n" + ta.value;
+			 }
+			 function btn_ew_click(btnNum) {
+				 if(btnNum === 3) {
+				     //alert("button 1")
+					 var msg = "You are heading East";
+					 updateText(msg);
+						if (east === false) {
+							 score = score + 5
+						 }
+					 east = true;
+				 } else {
+					 if(btnNum === 4) {
+						 //alert("button 2");
+						 var msg = "You are heading West";
+						 updateText(msg);
+							 if (west === false) {
+							 score = score + 5
+							 }
+						 west = true;
+					 } else {
+						 alert("Something went wrong.");
+						 }
+				 }				 
+			 }
+			 function btn_ondbl_click(btnNum) {
+				 if (btnNum == 0) {
+					 var msg = "you have reached your Mail Box!!"
+					 updateText(msg);
+				 }
+			 }
+			 function btn_score_click() {
+				 alert(score)
+			 }
+		 </script>
+	 </head>
+	 <body> 
+		 <h1 class="name">Epic Adventure Game</h1>
+		 
+		 <textarea id= "taGame" rows= "10" cols= "50">You are right outside your front door.		 
+		 </textarea>
+		 
+		 <br>
+		 
+		 <input type="button"
+				value="North"
+				onclick="btn_ns_click(1);">
+		 
+		 <input type="button"
+				value="South"
+				onclick="btn_ns_click(2);">
+		 
+		 <input type="button"
+				value="East"
+				onclick="btn_ew_click(3);">
+		 
+		 <input type="button"
+				value="West"
+				onclick="btn_ew_click(4);">
+		 
+		 <input type="button"
+				value="Score"
+				onclick="btn_score_click();">
+				
+		
+		 <br>
+		 
+		 <a href = "mailto:thomas.morse1@marist.edu">My email in case you have any questions</a>
+	 </body>
+</html>
+
