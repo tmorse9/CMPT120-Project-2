@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html>
+         <!-- Tom A Morse
+         Introduction to Programming
+         Project 2 - My First game -->
+	 <head>
+		 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		 <meta name="author"             content="Tom A Morse" />
+		 <title>Computer Science Project 2</title>
+		 <style>
+		 body {
+			 background-color: orange;
+			 color: green;
+		 }
+		 </style>
+		 <script type="text/JavaScript">
+			 
+			 var score = 0;
+			 var BREEZEWAYSCORE = 1;
+			 var MAILBOXSCORE = 1;
+			 var SWINGSETSCORE = 1;
+			 var POOLSCORE = 1;
+			 var currentLocation = 0;
+			 
+			 function startingPoint() {
+			 	 currentLocation = 0;
+			 	 UpdateDisplay("You are at the front door.");
+			 	 document.getElementById("idBreezeway").style.visibility="visible";
+			 	 document.getElementById("idMailbox").style.visibility="visible";
+			 	 document.getElementById("idPool").style.visibility="visible";
+			 	 document.getElementById("idSwingset").style.visibility="visible";
+			 }
+			 	 	 
+			 function btn_breezeway_click() {
+			 	 if (currentLocation === 0) {
+                 	 currentLocation ="BREEZEWAY1";
+                 	 var msg= "You are in the breeze way of the house!";
+                 	 UpdateDisplay (msg);
+                 	 document.getElementById("idBreezeway").style.visibility="visible";
+                 	 document.getElementById("idMailbox").style.visibility="visible";
+                 	 document.getElementById("idPool").style.visibility="hidden";
+                 	 document.getElementById("idSwingset").style.visibility="hidden";
+                 	 	 if ( BREEZEWAYSCORE === 1 ) {
+                     	 	 score = (score + 5);
+                     	 	 BREEZEWAYSCORE = BREEZEWAYSCORE + 1;
+						 }	 
+                 }else if (currentLocation=== "BREEZEWAY1") {
+                     breezeway2();                    
+                 }else if (currentLocation ==="BREEZEWAY2") {     
+                     UpdateDisplay ("This is as far north as you can go, all the doors ahead are locked.");
+                 }else if (currentLocation ==="MAILBOX1") {
+                     startingPoint();
+                 } 
+			 }
+
+			 function breezeway2() {
+			 	 currentLocation = "BREEZEWAY2";
+			 	 var msg = "You have moved to the kitchen!";
+			 	 UpdateDisplay(msg);
+			 	 document.getElementById("idBreezeway").style.visibility="hidden";
+                 document.getElementById("idMailbox").style.visibility="visible";
+                 document.getElementById("idPool").style.visibility="hidden";
+                 document.getElementById("idSwingset").style.visibility="hidden";
+                     if (BREEZEWAYSCORE === 2) {
+                     	 score = (score +5);
+                     	 BREEZEWAYSCORE = BREEZEWAYSCORE +1;
+					 }
+			 }
+
+			 function btn_mailbox_click() {
+			 	 if (currentLocation === 0) {
+                 	 currentLocation = "MAILBOX1";
+                 	 var msg = "You have reached your mail box!";
+                 	 UpdateDisplay (msg);
+                 	 document.getElementById("idBreezeway").style.visibility="visible";
+                 	 document.getElementById("idMailbox").style.visibility="hidden";
+                 	 document.getElementById("idPool").style.visibility="hidden";
+                 	 document.getElementById("idSwingset").style.visibility="hidden";
+                 	 	 if (MAILBOXSCORE === 1) {
+                 	 	 	 score = (score + 5);
+                 	 	 	 MAILBOXSCORE = MAILBOXSCORE + 1;
+						 }
+                 }else if (currentLocation === "MAILBOX1") {
+                 	 UpdateDisplay("This is as far south as you can go, there are car speeding past on the road!!");
+                 }else if (currentLocation === "BREEZEWAY2") {
+                 	 currentLocation = 0;
+                 	 btn_breezeway_click();
+                 }else if (currentLocation === "BREEZEWAY1"){
+                 	 currentLocation = 0;
+                 	 startingPoint();
+                 }
+			 }
+
+			 function btn_pool_click() {
+			 	 if (currentLocation === 0) {
+			 	 	 currentLocation = "POOL1"
+			 	 	 var msg = "You have reached the pool but there is no LifeGuard on duty so you are not allowed to swim... :("
+			 	 	 UpdateDisplay (msg);
+			 	 	 document.getElementById("idBreezeway").style.visibility="hidden";
+                 	 document.getElementById("idMailbox").style.visibility="hidden";
+                 	 document.getElementById("idPool").style.visibility="hidden";
+                 	 document.getElementById("idSwingset").style.visibility="visible";
+                 	 	 if (POOLSCORE === 1) {
+                 	 	 	 score = (score +5);
+                 	 	 	 POOLSCORE = POOLSCORE + 1;
+						 }
+                 } else if (currentLocation === "POOL1") {	 
+					 UpdateDisplay ("If you go any further you will fall in the pool and drown!!")
+                 }else if (currentLocation === "SWINGSET1") {
+					 currentLocation = 0;
+					 startingPoint();
+                 } 	 
+			 }
+
+			 function btn_swingset_click() {
+			 	 if (currentLocation === 0) {
+			 	 	 currentLocation = "SWINGSET1"
+			 	 	 var msg = "You have reached the swing set but all the swings are broken :("
+			 	 	 UpdateDisplay (msg);
+			 	 	 document.getElementById("idBreezeway").style.visibility="hidden";
+                 	 document.getElementById("idMailbox").style.visibility="hidden";
+                 	 document.getElementById("idPool").style.visibility="visible";
+                 	 document.getElementById("idSwingset").style.visibility="hidden";
+                 	 	 if (SWINGSETSCORE === 1) {
+                 	 	 	 score = (score +5);
+                 	 	 	 SWINGSETSCORE = SWINGSETSCORE + 1;
+						 }
+                 } else if (currentLocation === "SWINGSET1") {
+                 	 UpdateDisplay ("If you walk any further you could step on the rusty chains from the swings!!");
+                 }else if (currentLocation === "POOL1") {
+                 	 currentLocation = 0;
+					 startingPoint();
+                 }
+			 }
+
+			 function btn_score_click() {
+			 	 UpdateDisplay ("Your current score is," + score);
+			 }
+
+			 function btn_go_click() {
+			 	 var userinput = document.getElementById("txtCommand"); 
+				 if (userinput.value === ("N")) {
+			 	 	 btn_breezeway_click();
+			 	 } else if (userinput.value === ("S")) {
+			 	 	 btn_mailbox_click();
+			 	 } else if (userinput.value === ("E")) {
+			 	 	 btn_pool_click();
+			 	 } else if (userinput.value === ("W")) {
+			 	 	 btn_swingset_click();
+			 	 } else if (userinput.value === ("n")) {
+			 	 	 btn_breezeway_click();
+			 	 } else if (userinput.value === ("s")) {
+			 	 	 btn_mailbox_click();
+			 	 } else if (userinput.value === ("e")) {
+			 	 	 btn_pool_click();
+			 	 } else if (userinput.value === ("w")) {
+			 	 	 btn_swingset_click();
+			 	 } else if (userinput.value === ("help")) {
+			 	 	 UpdateDisplay ("Valid commands are \"N\", \"n\", \"S\", \"s\", \"E\", \"e\", \"W\", \"w\", and \"help\". ")
+			 	 } else {
+			 	 	 UpdateDisplay ("Valid input valid command. To see all valid commands please type \"help\" ")
+			 	 }
+			 }
+
+			 function UpdateDisplay(msg) {
+			 	 msg = msg + "[" + currentLocation + "]" ;
+			 	 var ta = document.getElementById("taGame");
+			 	 ta.value = msg + "\n" + ta.value;
+			 }
+		 
+		 </script>
+	 </head>
+	 <body> 
+		 <h1 class="name">Epic Adventure Game</h1>
+		 
+		 <textarea id= "taGame" rows= "10" cols= "50">You are right outside your front door.		 
+		 </textarea>
+		 
+		 <br>
+		 
+		 <input type="button"
+				value="North"
+				onclick="btn_breezeway_click();"
+				id="idBreezeway">
+		 
+		 <input type="button"
+				value="South"
+				onclick="btn_mailbox_click();"
+				id="idMailbox">
+		 
+		 <input type="button"
+				value="East"
+				onclick="btn_pool_click();"
+				id="idPool">
+		 
+		 <input type="button"
+				value="West"
+				onclick="btn_swingset_click();"
+				id="idSwingset">
+		 
+		 <input type="button"
+				value="Whats your score?"
+				onclick="btn_score_click();">
+		
+		 <input type="button"
+				value="Go"
+				onclick="btn_go_click();">
+		 
+		 Enter Command
+		 <input type="text" id="txtCommand">
+				
+		
+		 <br>
+		 
+		 <a href = "mailto:thomas.morse1@marist.edu">My email in case you have any questions</a>
+	 </body>
+</html>
+

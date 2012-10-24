@@ -14,11 +14,22 @@
 		 }
 		 </style>
 		 <script type="text/JavaScript">
+			 
 			 var score = 0;
 			 var north = false;
 			 var south = false;
 			 var west = false;
 			 var east = false;
+			 
+			 /*
+				 Directional
+			 */
+			 var NORTH = 1;
+			 var SOUTH = 2;
+			 var EAST = 3;
+			 var WEST = 4;
+			 
+			 
 			 function btn_ns_click(btnNum) {
 				 //if thing1 was pressed...
 				 //else if thing2 pressed...
@@ -41,47 +52,76 @@
 							 }
 						 south = true;
 					 } else {
-						 alert("Something went wrong.");
-						 }
+						 //alert("Something went wrong.");
+						 if(btnNum === 3) {
+							 //alert("button 1")
+							 var msg = "You are heading East";
+							 updateText(msg);
+								 if (east === false) {
+									 score = score + 5
+									 }
+							 east = true;
+						 } else {
+							 if(btnNum === 4) {
+								 //alert("button 2");
+								 var msg = "You are heading West";
+								 updateText(msg);
+									 if (west === false) {
+										 score = score + 5
+									 }
+								 west = true;
+							 } else {
+								 alert("Something went wrong.");
+						     }
+						 }	
+					 }
 				 }
 			 }
+			 
+			 
 			 function updateText(msg) {
 				 var ta = document.getElementById("taGame");
 				 //alert(ta.value);
 				 ta.value = msg + "\n" + ta.value;
 			 }
-			 function btn_ew_click(btnNum) {
-				 if(btnNum === 3) {
-				     //alert("button 1")
-					 var msg = "You are heading East";
-					 updateText(msg);
-						if (east === false) {
-							 score = score + 5
-						 }
-					 east = true;
-				 } else {
-					 if(btnNum === 4) {
-						 //alert("button 2");
-						 var msg = "You are heading West";
-						 updateText(msg);
-							 if (west === false) {
-							 score = score + 5
-							 }
-						 west = true;
-					 } else {
-						 alert("Something went wrong.");
-						 }
-				 }				 
-			 }
-			 function btn_ondbl_click(btnNum) {
-				 if (btnNum == 0) {
-					 var msg = "you have reached your Mail Box!!"
-					 updateText(msg);
-				 }
-			 }
+			 
 			 function btn_score_click() {
 				 alert(score)
 			 }
+			 
+			 var currentLocation = 0;
+			 
+			 /*
+			 function move(direction) {
+				 if (direction === NORTH){
+					 if (currentLocation == 5) {
+						 currentLocation = 3;
+					 } else if (currentLocation == 3) {
+						 currentLocation = 0;	 
+					 } else if (currentLocation == 0) {
+						 currentLocation = 1;
+					 }
+					 updateDisplay("Moving North");
+				 } else if (direction === SOUTH) {
+					 currentLocation = 0;
+					 updateDisplay("Moving South");
+				 } else if (direction === EAST) {
+					 updateDisplay("Moving East");
+				 } else if (direction === WEST) {
+					 updateDisplay("Moving West");
+				 } else { 
+					 updateDisplay("Error.  Unknown Direction: " + direction);
+				 }
+			 }
+			 */
+
+			 function updateDisplay(msg) {
+				 msg = msg + " ["+ currentLocation +"]";
+				 var ta = document.getElementById("taGame");
+				 //alert(ta.value);
+				 ta.value = msg + "\n" + ta.value;
+			 }
+			 
 		 </script>
 	 </head>
 	 <body> 
@@ -102,11 +142,11 @@
 		 
 		 <input type="button"
 				value="East"
-				onclick="btn_ew_click(3);">
+				onclick="btn_ns_click(3);">
 		 
 		 <input type="button"
 				value="West"
-				onclick="btn_ew_click(4);">
+				onclick="btn_ns_click(4);">
 		 
 		 <input type="button"
 				value="Score"

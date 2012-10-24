@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+         <!-- Tom A Morse
+         Introduction to Programming
+         Project 2 - My First game -->
+	 <head>
+		 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		 <meta name="author"             content="Tom A Morse" />
+		 <title>Computer Science Project 2</title>
+		 <style>
+		 body {
+			 background-color: orange;
+			 color: green;
+		 }
+		 </style>
+		 <script type="text/JavaScript">
+			 
+			 var score = 0;
+			 var NORTH = 1;
+			 var SOUTH = 2;
+			 var EAST = 3;
+			 var WEST = 4;
+			 var CENTER = 5;
+			 var NORTH2 = 6;
+			 
+			 function btn_north_click(btnNum) {
+				 if(btnNum === 1) {
+					 var msg = "You are heading North";
+					 updateText(msg);
+			 }
+			 
+			 function NORTH2 {
+			 
+			 }
+			 
+			 function btn_south_click(btnNum) {
+				 if(btnNum === 1) {
+					 var msg = "You are heading South";
+					 updateText(msg);
+			 }
+			 
+			 function btn_east_click(btnNum) {
+				if(btnNum === 1) {
+					 var msg = "You are heading East";
+					 updateText(msg);
+			 }
+			 
+			 function btn_west_click(btnNum) {
+				if(btnNum === 1) {
+					 var msg = "You are heading West";
+					 updateText(msg);
+			 }
+			 
+			 function updateText(msg) {
+				 var ta = document.getElementById("taGame");
+				 //alert(ta.value);
+				 ta.value = msg + "\n" + ta.value;
+			 }
+			 
+			 function btn_score_click() {
+				 alert(score)
+			 }
+			 
+			 var currentLocation = 0;
+			 
+			 function updateDisplay(msg) {
+				 msg = msg + " ["+ currentLocation +"]";
+				 var ta = document.getElementById("taGame");
+				 //alert(ta.value);
+				 ta.value = msg + "\n" + ta.value;
+			 }
+			 
+		 </script>
+	 </head>
+	 <body> 
+		 <h1 class="name">Epic Adventure Game</h1>
+		 
+		 <textarea id= "taGame" rows= "10" cols= "50">You are right outside your front door.		 
+		 </textarea>
+		 
+		 <br>
+		 
+		 <input type="button"
+				value="North"
+				onclick="btn_north_click(1);">
+		 
+		 <input type="button"
+				value="South"
+				onclick="btn_south_click(1);">
+		 
+		 <input type="button"
+				value="East"
+				onclick="btn_east_click(1);">
+		 
+		 <input type="button"
+				value="West"
+				onclick="btn_west_click(1);">
+		 
+		 <input type="button"
+				value="Score"
+				onclick="btn_score_click();">
+				
+		
+		 <br>
+		 
+		 <a href = "mailto:thomas.morse1@marist.edu">My email in case you have any questions</a>
+	 </body>
+</html>
+
