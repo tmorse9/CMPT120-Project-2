@@ -72,7 +72,7 @@ function location6() {
 		 updateDisplay("There is a piece of mail in the mailbox, you take it!");
 		 playerHasMail = true;
 	 } else {
-		 updateDisplay("@@@@");	 
+		 updateDisplay("");	 
      }
 	 moveCount = moveCount + 1;
 	 document.getElementById("idnorth").style.visibility="visible";
@@ -96,7 +96,7 @@ function location8() {
 		 updateDisplay("You have found a key to an unkown door!!!");
 		 playerHasKey = true;
 	 } else {
-		 updateDisplay("$$$");	 
+		 updateDisplay("");	 
      }
 	 moveCount = moveCount + 1;
 	 document.getElementById("idnorth").style.visibility="visible";
