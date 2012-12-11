@@ -93,7 +93,7 @@ function location7() {
 function location8() {
 	 updateDisplay("You are at the swingset");
 	 if(!playerHasKey) {
-		 updateDisplay("You have found a key to an unkown door!!!");
+		 updateDisplay("You have found a key to an unknown door!!!");
 		 playerHasKey = true;
 	 } else {
 		 updateDisplay("");	 

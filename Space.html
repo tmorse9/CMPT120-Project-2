@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+         <!-- Tom A Morse
+         Introduction to Programming
+         Project 2 - My First game -->
+	 <head>
+		 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		 <meta name="author"             content="Tom A Morse" />
+		 <title>Computer Science Project 2</title>
+		 <style>
+		 body {
+			 background-color: orange;
+			 color: green;
+		 }
+		 </style>
+		
+		 //note from 10-22-12
+		 <script type="text/JavaScript" src="space.js"></script>
+		 <script type="text/JavaScript">
+			 function updateText(msg) {
+				 var ta = document.getElementById("taSpace");
+				 ta.value = msg + "\n" +ta.value;
+			 }
+			 
+
+		 </script>
+	 </head>
+	 <body> 
+		 <h1 class="name">Epic Adventure Game</h1>
+		 
+		 <textarea id= "taSpace" rows= "10" cols= "50">You are right outside your front door.		 
+		 </textarea>
+		 
+		 <br>
+		 
+		 
+		 <input type="button"
+				value="thing one"
+				onclick="tester();">
+		
+		 <input type="button"
+				value="Go"
+				onclick="btn_go_click();">
+		 
+		 Enter Command
+		 <input type="text" id="txtCommand">
+				
+		
+		 <br>
+		 
+		 <a href = "mailto:thomas.morse1@marist.edu">My email in case you have any questions</a>
+	 </body>
+</html>
+
