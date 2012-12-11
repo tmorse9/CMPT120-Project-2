@@ -86,11 +86,11 @@ function move(direction) {
 	 var newArea = nav[currentLocation][direction];
 	 if(newArea >= 0) { 
 		 currentLocation = newArea;
-		 takeItem();
-		 updateDisplay(itemList[currentLocation].description);
-		 updateDisplay(locales[currentLocation].description);
 		 textFunction(currentLocation);
-
+		 newItem();
+		 takeItem();
+		 updateDisplay(locales[currentLocation].description);
+		 updateDisplay(itemList[currentLocation].description);
 		 
 	 } else {
 		 updateDisplay("you can not go this way");
