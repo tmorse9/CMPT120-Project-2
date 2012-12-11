@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+         <!-- Tom A Morse
+         Introduction to Programming
+         Project 2 - My First game -->
+	 <head>
+		 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		 <meta name="author"             content="Tom A Morse" />
+		 <title>Computer Science Project 2</title>
+		 <style>
+		 body {
+			 background-color: orange;
+			 color: green;
+		 }
+		 </style>
+		
+		 <script type="text/JavaScript" src="locations6.js"></script>		 
+		 <script type="text/JavaScript" src="extra6.js"></script>		 
+		 <script type="text/JavaScript" src="part6.js"></script>
+
+
+
+		 
+	 </head>
+	 <body onload="init();"> 
+		 <h1 class="name">Epic Adventure Game</h1>
+		 
+		 <textarea id= "taGame" rows= "10" cols= "50">  </textarea>
+		 
+		 <br>
+		 
+		 <input type="button"
+				value="North"
+				onclick="move(north);"
+				id="idnorth">
+		 
+		 <input type="button"
+				value="South"
+				onclick="move(south);"
+				id="idsouth">
+		 
+		 <input type="button"
+				value="East"
+				onclick="move(east);"
+				id="ideast">
+		 
+		 <input type="button"
+				value="West"
+				onclick="move(west);"
+				id="idwest">
+		 
+		 <br>
+		 
+		 <input type="button"
+				value="Whats in your inventory?"
+				onclick="displayInventory();">		
+		 
+		 <input type="button"
+				value="Go"
+				onclick="btn_go_click();">
+		 
+
+		 
+		 Enter Command
+		 <input type="text" id="txtCommand">
+				
+		 <br>
+		 
+		 <a href="#"><img Src="map.JPG" width="50%" height="25%" title="" alt=""/></a>
+		 
+		 
+		 <br>
+		 
+		 <a href = "mailto:thomas.morse1@marist.edu">My email in case you have any questions</a>
+	 </body>
+</html>
+
